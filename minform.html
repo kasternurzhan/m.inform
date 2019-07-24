@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ru"> 	
+        <head> 		
+                <meta charset="utf-8"> 		
+                <meta http-equiv="X-UA-Compatible" content="IE=edge"> 		
+                <meta name="viewport" content="width=device-width, initial-scale=1"> 		
+                <title></title> 		
+                <link rel="stylesheet" href="https://www.inform.kz/lenta/css_error/bootstrap.min.css"> 		
+                <!--<link rel="stylesheet" href="https://www.inform.kz/lenta/css_error/inform_new_error.css">--> 		
+                <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script> 		
+                        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script> <![endif]--> 		
+        <style> 
+        @font-face { 
+                font-family: "PT Sans"; src: url("https://www.inform.kz/lenta/css_error/fonts/PT_Sans-Web-Regular.ttf"); 
+        } 
+        @font-face { 
+                font-family: "PT Serif Caption"; src: url("https://www.inform.kz/lenta/css_error/fonts/PT_Serif-Caption-Web-Regular.ttf"); 
+        } 
+        * { 
+                margin: 0; 
+                padding: 0; 
+        } 
+        html, body, .container { 
+                height: 100%; 
+        } 
+        body > .container { 
+                min-width: 320px; 
+        } 
+        body{
+                background-color: #fff !important;
+        }
+        a, img, input, button { 
+                outline: none !important; 
+                border: none !important; 
+        } 
+        ul, li { 
+                list-style-type: none; 
+        } 
+        a { 
+                text-decoration: none !important; 
+                color: #292929 !important; 
+        } 
+        a:hover { 
+                text-decoration: underline !important; 
+        } 
+        header { 
+                background: transparent;
+                max-width: 360px;
+                padding: 15px 25px 19px 10px;
+        } 
+        .header_logo, .header_lang, .header_weather, .header_rub{ 
+                float: left; 
+        } 
+        .header { 
+                overflow: hidden; 
+                position: relative;
+                margin: auto;
+                width: 100%; 
+        } 
+        .header_logo { 
+                margin-right: 15px; 
+                display:block; 
+                max-width: 158px;
+                max-height: 26.88px;
+                padding-right: 25px;
+        } 
+        .header_logo img { 
+                width: 100%; 
+                display: block; 
+        } 
+        .header_lang { 
+                width: 100px; 
+                text-align: center;
+                margin: 5px 0 0 0;
+                max-width: 57px;
+                max-height: 17px; 
+                font-size: 15px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #bdbdbd !important;
+        } 
+        .header_lang > li { 
+                display: inline-block; 
+                padding: 0 15px 5px 0; 
+                font-size: 13px; 
+        } 
+        .header_lang > li > a, .arhive_block a { 
+                color: #a4a4a4 !important; 
+        } 
+        .header_lang .active { 
+                color: #292929 !important; 
+        } 
+        .header_rub{
+                width: 100px; 
+                text-align: center;
+                margin: 5px 0 0 0; 
+                max-width: 63px;
+                max-height: 17px;
+                font-size: 15px;
+                font-weight: bold;
+                text-transform: uppercase;
+                color: #bdbdbd !important;
+                padding-left: 24px;
+        }
+        .header_rub > li { 
+                display: inline-block; 
+                padding: 0 15px 5px 0; 
+                font-size: 13px; 
+        } 
+        .header_search { 
+                width: 300px; 
+                height: 35px; 
+                background: #f0f0f0;
+                margin-top: 10px; 
+                display: inline-block; 
+        } 
+        .header_search input[placeholder] { 
+                width: 90%; 
+                float: left; 
+                border: none; 
+                font-size: 13px; 
+                padding: 9px 0 0 9px; 
+                color: #a4a4a4; 
+                background: #f0f0f0; 
+        } 
+        .header_search input[type="image"] { 
+                width: 10%; 
+                float: right; 
+                padding: 11px; 
+        } 
+        .header_search input[type="image"]:hover { 
+                opacity: 0.7; 
+        } 
+        .main_container { 
+                margin-bottom: 30px; 
+        } 
+        .news_top img{
+                width: 360px;
+                height: 240px;
+
+        }
+        .news_top a{
+                text-decoration: none !important;
+        }
+        .news_time_rub{
+                padding-top: 7px;
+                padding-left: 9px;   
+        }
+        .news_time_rub time{
+                font-size: 12px;
+                line-height: 1.14;
+                color: #bdbdbd !important;
+        }
+        .news_title{
+                width: 341px;
+                padding-top: 2px;
+                font-size: 18px;
+                line-height: 1.14;
+        }
+        .news_title a{
+                color: #224189 !important;
+                font-weight: bold;
+        }
+        .other_top{
+                padding-top: 16px;
+                padding-bottom: 21px;
+        }
+        .other_top a{
+                display: block;
+                text-decoration: none !important;
+                color: #000 !important;
+                position: relative;
+                width: 340px;
+                padding-bottom: 20px;
+        }
+        .other_top .other_toppic{
+                background-size: cover;
+                background-position: center center;
+                height: 72px;
+                width: 107px;
+                margin-right: 10px;
+                float: left;
+        }
+        .other_top .other_toptitle{
+                font-size: 16px;
+                display: block;
+                overflow: hidden;
+                width: 223px;
+                line-height: 1.14;
+        }
+        .other_time_rub{
+                height:14px;
+        }
+        .other_time_rub time{
+               font-size: 12px;
+               line-height: 1.14;
+               color: #bdbdbd !important;
+        }
+        .all_news{
+                border-top: 1px solid #ebebeb;
+                max-width: 340px;
+                padding-top: 21px;
+                padding-bottom: 21px;
+        }
+        .all_news a{
+                display: block;
+                text-decoration: none !important;
+                position: relative;
+                width: 340px;
+                padding-bottom: 13px;
+        }
+        .all_news h1{
+                color: #ae2424 !important;
+                width: 115px;
+                height: 21px;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1.14;
+        }
+        .all_time_rub{
+                height:14px;
+        }
+        .all_time_rub time{
+               font-size: 12px;
+               line-height: 1.14;
+               color: #bdbdbd !important;
+        }
+        .allnews_title{
+                font-size: 16px;
+                display: block;
+                overflow: hidden;
+                width: 340px;
+                line-height: 1.14;
+                color: #224189 !important;
+        }
+        .more_news{
+                padding-left: 242px;
+                padding-top: 28px;
+                color: #bdbdbd !important;
+                font-size: 12px;
+                font-style: italic;
+        }
+        .spec_proc{
+                border-top: 1px solid #ebebeb;
+                max-width: 340px;
+        }
+        .spec_proc a {
+                display: block;
+                text-decoration: none !important;
+                position: relative;
+                max-width: 340px;
+                height: 100px;
+        }
+        .spec_proc h1{
+                color: #224189;
+                text-align: right;
+                height: 21px;
+                font-size: 18px;
+                font-weight: 900;
+        }
+        .spec_proc h2{
+                color: #ae2424;
+                text-align: right;
+                height: 17px;
+                font-size: 15px;
+                font-weight: 600;
+        }
+        .spec_title{
+                width: 223px;
+                height: 51px;
+                float: right;
+                color: #343434;
+        }
+        .spec_pic{
+                width: 107px;
+                height: 71px;
+                float: right;
+        }
+        .nazna{  
+                border-top: 1px solid #ebebeb !important;
+                padding-top: 21px;
+                max-width: 340px;
+                padding-bottom:21px;
+        }
+        .nazna_main{
+                display: block;
+                text-decoration: none;
+                position: relative;
+                width: 340px;
+                height: 227px;
+        }
+        .nazna_main img{
+                width: 340px;
+                height:227px;
+        }
+        .nazna_main span{
+                display: block;
+                left: 0px;
+                bottom:0px;
+                width: 128px;
+                height: 21px;
+                font-size: 18px;
+                padding-bottom: 108px;
+                padding-left: 19px;
+                position: absolute;
+                font-weight: 900;
+                color:#fff;
+                line-height: 1.14;
+                text-transform: uppercase;
+        }
+        .nazna_main p{
+                width: 230px;
+                height: 49px;
+                font-size: 16px;
+                position: absolute;
+                font-weight: normal;
+                color:#fff;
+                line-height: 1.14;
+                bottom: 22px;
+                left:19px;
+        }
+        .economic{  
+                border-top: 1px solid #ebebeb !important;
+                padding-top: 21px;
+                padding-bottom: 21px;
+                max-width: 340px;
+        }
+        .economic_main{
+                display: block;
+                text-decoration: none;
+                position: relative;
+                width: 340px;
+                height: 227px;
+        }
+        .economic_main img{
+                width: 340px;
+                height:227px;
+        }
+        .economic_main span{
+                display: block;
+                left: 0px;
+                bottom:0px;
+                width: 128px;
+                height: 21px;
+                font-size: 18px;
+                padding-bottom: 108px;
+                padding-left: 19px;
+                position: absolute;
+                font-weight: 900;
+                color:#fff;
+                line-height: 1.14;
+                text-transform: uppercase;
+        }
+        .economic_main p{
+                width: 230px;
+                height: 49px;
+                font-size: 16px;
+                position: absolute;
+                font-weight: normal;
+                color:#fff;
+                line-height: 1.14;
+                bottom: 22px;
+                left:19px;
+        }
+        .mneniya{  
+                border-top: 1px solid #ebebeb !important;
+                padding-top: 21px;
+                max-width: 340px;
+                padding-bottom: 21px;
+        }
+        .mneniya_main{
+                display: block;
+                text-decoration: none;
+                position: relative;
+                width: 340px;
+                height: 227px;
+        }
+        .mneniya_main img{
+                width: 340px;
+                height:227px;
+        }
+        .mneniya_main span{
+                display: block;
+                left: 0px;
+                bottom:0px;
+                width: 128px;
+                height: 21px;
+                font-size: 18px;
+                padding-bottom: 108px;
+                padding-left: 19px;
+                position: absolute;
+                font-weight: 900;
+                color:#fff;
+                line-height: 1.14;
+                text-transform: uppercase;
+        }
+        .mneniya_main p{
+                width: 230px;
+                height: 49px;
+                font-size: 16px;
+                position: absolute;
+                font-weight: normal;
+                color:#fff;
+                line-height: 1.14;
+                bottom: 22px;
+                left:19px;
+                
+        }
+        .rubriki{  
+                border-top: 1px solid #ebebeb !important;
+                max-width: 340px;
+        }
+        .rubriki h1{
+                color: #ae2424 !important;
+                width: 78px;
+                height: 21px;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1.14;
+                text-transform: uppercase;
+        }
+        .rubriki a{
+                display: block;
+                text-decoration: none !important;
+                color: #000 !important;
+                position: relative;
+                width: 340px;
+                padding-bottom: 20px;
+                height: 100px;
+        }
+        .other_rubpic{
+                height: 71px;
+                width: 107px;
+                margin-right: 10px;
+                float: left;
+        }
+        .other_rubtitle{
+                width: 39px;
+                height: 14px;
+                font-size: 12px;
+                font-weight: bold;
+                line-height: 1.14;
+                color: #fff;
+                position:absolute;
+                top: 7px;
+                left: 9px;
+        }
+        .rubriki p{
+                font-size: 15px;
+                display: block;
+                overflow: hidden;
+                width: 223px;
+                line-height: 1.14;
+        }
+        .media{
+                border-top: 1px solid #ebebeb !important;
+                max-width: 340px;
+        }
+        .media a{
+                text-decoration: none !important;
+                display: block;
+                padding-bottom: 30px;
+        }
+        .media h1{
+                color: #224189 !important;
+                width: 59px;
+                height: 21px;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1.14;
+                text-transform: uppercase;
+        }
+        .media_pic{
+                width: 340px;
+                height: 227px;
+        }
+        .media_name{
+                color: #ae2424;
+                font-size: 16px;
+                line-height: 1.14;
+                text-transform: uppercase;
+        }
+        .media_title{
+                color: #000;
+                font-size: 16px;
+                line-height: 1.14;
+        }
+        footer {
+                font-size: 12px;
+                height: 100px;
+                max-width: 360px;
+        } 
+        footer a{
+                float: right;
+        }
+        .copyright {
+                float: left;
+                font-weight: bold;
+                margin: 5px 0;
+        } 
+        .counter {
+                clear: both;
+                padding-top: 15px;
+        }
+        </style> 	
+        </head> 	
+        <BODY> 		
+                <div class="container"> 			
+                        <header> 				
+                                <div class="header"> 				
+                                        <div class="header_logo"> 
+                                                <img src="https://www.inform.kz/lenta/img/logo_ru.png" alt="">
+                                        </div> 					
+                                <ul class="header_lang"> 					
+                                        <li>язык</li> 
+                                </ul> 	
+                                <div class="header_rub">
+                                        <li>рубрика</li>
+                                </div>				
+                                </div> 			
+                        </header> 			
+                <div class="main_container"> 				
+                        <div class="main_news">
+                                <div class="news_top">
+                                        <a href="#">
+                                                <img src="./img/222.jpg" alt="">
+                                                <div class="news_time_rub">
+                                                                <time>06.06.2019 12:20</time>
+                                                </div>
+                                        </a>
+                                        <div class="news_title">
+                                                <a href="">Президент РК указал на необходимость разработки Концепции развития госуправления</a>
+                                        </div>
+                                </div>
+                                <div class="other_top">
+                                        <a href="#">
+                                                <div class="other_toppic">
+                                                        <img src="./img/333.jpg" >
+                                                </div>
+                                                <div class="other_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="other_toptitle">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                        </a>
+                                        <a href="#">
+                                                <div class="other_toppic">
+                                                        <img src="./img/333.jpg" >
+                                                </div>
+                                                <div class="other_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="other_toptitle">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                        </a>
+                                        <a href="#">
+                                                <div class="other_toppic">
+                                                        <img src="./img/333.jpg" >
+                                                </div>
+                                                <div class="other_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="other_toptitle">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                        </a>
+                                        <a href="#">
+                                                <div class="other_toppic">
+                                                        <img src="./img/333.jpg" >
+                                                </div>
+                                                <div class="other_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>  
+                                                <span class="other_toptitle">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                        </a>
+                                        <a href="#">
+                                                <div class="other_toppic">
+                                                        <img src="./img/333.jpg" >
+                                                </div>
+                                                <div class="other_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>  
+                                                <span class="other_toptitle">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                        </a>
+                                </div>
+                        </div>
+                        <div class="all_news">
+                                <div>
+                                        <h1>ВСЕ НОВОСТИ</h1>
+                                </div>
+                                <a href="#">
+                                        <div class="all_time_rub">
+                                                <time>06.06.2019 12:20</time>
+                                        </div>
+                                        <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a href="#">
+                                                <div class="all_time_rub">
+                                                        <time>06.06.2019 12:20</time>
+                                                </div>
+                                                <span class="allnews_title">Димаш Кудайберген презентовал свой саундтрек к сериалу</span>
+                                </a>
+                                <a class="more_news" href="#">Загрузить еще</a>
+                        </div>
+                        <div class="spec_proc">
+                                <div>
+                                        <h1>СПЕЦПРОЕКТ</h1>
+                                </div>
+                                
+                                <a href="#">
+                                        <div class="spec_pic">
+                                                <img src="./img/333.jpg" >
+                                        </div>
+                                        <h2>Гость казинформ</h2>
+                                        <span class="spec_title">Всеобщее декларирование в РК: когда ожидается полный переход</span>
+                                        
+                                </a>
+                                <a href="#">
+                                        <div class="spec_pic">
+                                                <img src="./img/333.jpg" >
+                                        </div>
+                                        <h2>Аналитик</h2>
+                                        <span class="spec_title">Всеобщее декларирование в РК: когда ожидается полный переход</span>
+                                                
+                                </a>
+                                <a href="#">
+                                        <div class="spec_pic">
+                                                <img src="./img/333.jpg" >
+                                        </div>
+                                        <h2>Спорт</h2>
+                                        <span class="spec_title">Всеобщее декларирование в РК: когда ожидается полный переход</span>
+                                                        
+                                </a>
+                                <a href="#">
+                                        <div class="spec_pic">
+                                                <img src="./img/333.jpg" >
+                                        </div>
+                                        <h2>Указы и релизы</h2>
+                                        <span class="spec_title">Всеобщее декларирование в РК: когда ожидается полный переход</span>
+                                                
+                                </a>
+                                <a href="#">
+                                        <div class="spec_pic">
+                                                <img src="./img/333.jpg" >
+                                        </div>
+                                        <h2>Анонс Казинформа</h2>
+                                        <span class="spec_title">Всеобщее декларирование в РК: когда ожидается полный переход</span>
+                                                        
+                                </a>
+                        </div>
+                        <div class="nazna">
+                                <a href="#" class="nazna_main">
+                                        <img src="./img/444.jpg">
+                                        <span>Назначения</span>
+                                        <p>Вместо арестованного районного акима назначили нового в Костанайской области</p>
+                                </a>
+                        </div>
+                        <div class="economic">
+                                <a href="#" class="economic_main">
+                                        <img src="./img/444.jpg">
+                                        <span>экономика</span>
+                                        <p>В столице проанализируют все проекты ГЧП на финансовую целесообразность</p>
+                                </a>
+                        </div>
+                        <div class="mneniya">
+                                <a href="#" class="mneniya_main">
+                                        <img src="./img/444.jpg">
+                                        <span>мнения</span>
+                                        <p>Для кардинальных изменений в казахстанской науке требуется комплексный подход – эксперт КИСИ</p>
+                                </a>
+                        </div>
+                        <div class="rubriki">
+                                <div>
+                                <h1>рубрики</h1>
+                                </div>
+                                <a href="#">
+                                        <span class="other_rubtitle">Валсть</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/1.jpg" >
+                                        </div>
+                                        <p>Неэффективное использование бюджетных средств при реализации госпрограммы выявили в СКО</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Госпрограммы</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/2.jpg" >
+                                        </div>
+                                        <p>О новом Экологическом кодексе высказался аким столицы</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Экономика</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/3.jpg" >
+                                        </div>
+                                        <p>До конца года в Актюбинской области введут 1 млн квадратных метров жилья</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Происшествия</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/4.jpg" >
+                                        </div>
+                                        <p>Директор театра протаранил две машины в Уральске</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Общество</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/5.jpg" >
+                                        </div>
+                                        <p>Казахстан презентовал возможности делового и событийного туризма в России</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Спорт</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/6.jpg" >
+                                        </div>
+                                        <p>Мужская команда Казахстана по водному поло уступила Австралии на ЧМ-2019</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Регионы</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/7.jpg" >
+                                        </div>
+                                        <p>Вырубят ли деревья на «Атакенте» в Алматы из-за строительства Конгресс-центра</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">В мире</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/8.jpg" >
+                                        </div>
+                                        <p>Впервые женщина возглавила Еврокомиссию</p>
+                                </a>
+                                <a href="#">
+                                        <span class="other_rubtitle">Мнение</span>
+                                        <div class="other_rubpic">
+                                                <img src="./img/9.jpg" >
+                                        </div>
+                                        <p>Даурен Абаев прокомментировал создание АО «Казинформ»</p>
+                                </a>
+                        </div>
+                        <div class="media">
+                                <h1>Медиа</h1>
+                                <a href="#">
+                                        <div class="media_pic">
+                                                <img src="./img/555.jpg">
+                                        </div>
+                                        <span class="media_name">ФОТО. </span>
+                                        <span class="media_title">Животные в объективе: фото питомцев Алматинского зоопарка</span>
+                                </a>
+                                <a href="#">
+                                        <div class="media_pic">
+                                                <img src="./img/666.jpg" >
+                                        </div>
+                                        <span class="media_name">ВИДЕО. </span>
+                                        <span class="media_title">Совещание Верховного Суда по итогам первого полугодия</span>
+                                </a>
+                                <a href="#">
+                                        <div class="media_pic">
+                                                <img src="./img/777.jpg" >
+                                        </div>
+                                        <span class="media_name">ИНФОГРАФИКА. </span>
+                                        <span class="media_title">Технические характеристики порта Курык</span>
+                                </a>
+                                        
+
+                        </div>
+                </div> 			
+        <footer> 				
+                <div class="copyright">&copy; 2019 МИА «Казинформ»</div>
+                <a href="www.inform.kz">полная версия сайта</a>				
+                <div class="counter"> <!-- счетчики --> </div> 			
+        </footer> 		
+        </div> 	
+        </BODY> 
+        </html>
